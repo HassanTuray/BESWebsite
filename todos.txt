@@ -1,0 +1,36 @@
+Minimum Viable Product Goals
+----------------------------
+- Website has the following pages completed: About Us, Contact Us, Sponsors, Programs and Events
+    About Us
+        - Mission Statements
+        - Photo header
+        - Some kind of thing that tells people a high level summary of us 
+    Contact Us
+        - Form that takes messages from outside users
+    Sponsors
+        - Logos of all our Sponsors
+        - Sponsors organized in DISTINCT TIERs
+        - Connection to contact us page
+    Program and Events
+        - Displays upcoming Events
+        - Description of our events with time information
+        - Event Calendar
+
+- Website has database set up to store messages received from contact us page
+- Website is being hosted using 3rd party site
+
+
+General Todos
+-------------
+- Setup constants file to swap out text on pages
+- Add special highlighting to the names of the leaders of the zones and special special higlight for the president
+- Add photos to tree stucture
+- Add hover affect to tree structure photos
+- Add extra info to hover effect on tree structure
+- rename the variables to be general and note too directly geared towards eboard stuff
+- switch from tailwind to just regular css
+- change image sizes to the appropriate sizes and upload them rather than doing scaling
+- Fix sizing on website to work on multiple screens and multiple displays
+- Rename files to snake case
+- Restructure usage of div and section. Some pages render multiple sections while others do not
+- Remove wild card imports for large libraries
