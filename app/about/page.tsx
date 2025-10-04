@@ -1,3 +1,5 @@
+
+
 // app/about/page.tsx
 import Image from "next/image";
 import OrgTree, { OrgTreeNode } from "../components/org-tree";
@@ -26,6 +28,7 @@ export default function AboutPage() {
 
   return (
     <>
+    <section className="px-25">
     {/* Huge page title with logos on both sides (one line, no white boxes) */}
     <section className="mx-auto max-w-6xl px-4 py-12">
       <div className="flex flex-nowrap items-center justify-center gap-3 sm:gap-6">
@@ -60,57 +63,69 @@ export default function AboutPage() {
       <div className="mx-auto mt-4 h-[3px] w-48 rounded-full bg-gradient-to-r from-rose-600 via-[#FFD700] to-[#228B22]" />
     </section>
 
-      {/* Right-side stack with a SEAMLESS left image */}
-      <section className="mx-auto max-w-6xl px-4 md:pr-2 lg:pr-0 pb-4">
-        <div className="grid grid-cols-1 md:grid-cols-[1fr_minmax(0,420px)] gap-8 md:justify-items-end">
-          {/* LEFT: seamless, larger image */}
-          <div className="relative aspect-[4/3] md:aspect-[3/4] lg:aspect-[1/1]">
-            <Image
-              src={page.c_mainPhoto}   // file in /public
-              alt="About BES"
-              width={1600}
-              height={1600}
-              className="object-cover"
-              priority
-              sizes="(min-width: 1024px) 50vw, (min-width: 768px) 50vw, 100vw"
-            />
-          </div>
-
-          {/* Top card — NSBE Mission */}
-          <div className="w-full md:max-w-[420px] md:justify-self-end flex flex-col gap-6">
+      {/* History Mission Statment Section */}
+      <section>
+        <div className="grid grid-cols-2 gap-5 items-stretch">
+          
+          {/* NSBE Mission Statement Card */}
+          <div className="relative col-span-1">
             <Card>
-              <h2 className="text-xl sm:text-2xl font-bold bg-gradient-to-r from-rose-600 via-[#FFD700] to-[#228B22] bg-clip-text text-transparent">
+              <h2 className="text-xl sm:text-5xl font-bold bg-gradient-to-r from-rose-600 via-[#FFD700] to-[#228B22] bg-clip-text text-transparent">
                 {page.c_NSBEMissionTitleText}
-                </h2>
-              <p className="mt-3 text-sm sm:text-base text-white/80">
+              </h2>
+              
+              <p className="mt-3 text-2xl/10 text-white/80 pr-10 pb-15">
                 {page.c_NSBEMissionStatementText}
               </p>
-            </Card>
 
-            {/* Bottom — BES Mission Statement */}
-            <Card>
-              <h2 className="text-xl sm:text-2xl font-bold bg-gradient-to-r from-rose-600 via-[#FFD700] to-[#228B22] bg-clip-text text-transparent">
+              <div className="flex justify-end items-end">
+                <Image
+                  src="/slides/nsbe-logo.png"  
+                  alt="BES crest"
+                  width={96}
+                  height={96}
+                  className="hidden sm:block h-10 w-10 sm:h-14 sm:w-14 md:h-20 md:w-20 object-contain"
+                  priority
+                />
+              </div>
+            </Card>
+          </div>
+
+          {/* BES Mission Statement Card */}
+          <div className="relative col-span-1">
+            <Card cardWrapper="h-full flex flex-col justify-between">
+              <h2 className="text-xl sm:text-5xl font-bold bg-gradient-to-r from-rose-600 via-[#FFD700] to-[#228B22] bg-clip-text text-transparent">
                 {page.c_BESMissionTitleText}
-                </h2>
-              <p className="mt-3 text-sm sm:text-base text-white/80">
-                {page.c_BESMissionStatementText}
+              </h2>
+
+              <p className="mt-3 text-2xl/10 text-white/80 pr-10 pb-15">
+                To <b><u>recruit</u></b>, <b><u>retain</u></b>, and <b><u>release</u></b> qualified minorities in the fields of computer science, engineering, mathematics, and physical sciences.
+              </p>
+
+              <div className="flex justify-end items-end">
+                <Image
+                  src="/slides/beslogo.png" 
+                  alt="BES logo"
+                  width={96}
+                  height={96}
+                  className="hidden sm:block h-10 w-10 sm:h-14 sm:w-14 md:h-20 md:w-20 object-contain"
+                  priority
+                />
+              </div>
+            </Card>
+          </div>
+
+          {/* History card */}
+          <div className="flex justify-center w-full col-span-2">
+            <Card cardWrapper="w-full min-h-[18rem]">
+              <h2 className="text-xl sm:text-5xl font-bold bg-gradient-to-r from-rose-600 via-[#FFD700] to-[#228B22] bg-clip-text text-transparent">
+                {page.c_historyTitleText}
+              </h2>
+              <p className="mt-3 text-2xl/10 text-white/80 pr-10 pb-15">
+                {page.c_historyText}
               </p>
             </Card>
           </div>
-        </div>
-      </section>
-
-      {/* History card*/}
-      <section className="mx-auto max-w-6xl px-4 pt-4 pb-8">
-        <div className="flex justify-center">
-          <Card cardWrapper="w-full md:max-w-6xl min-h-[18rem]">
-            <h2 className="text-2xl sm:text-3xl font-bold bg-gradient-to-r from-rose-600 via-[#FFD700] to-[#228B22] bg-clip-text text-transparent">
-              {page.c_historyTitleText}
-            </h2>
-            <p className="mt-3 text-sm sm:text-base text-white/80">
-                {page.c_historyText}
-            </p>
-          </Card>
         </div>
       </section>
 
@@ -124,6 +139,7 @@ export default function AboutPage() {
         // wrapLabel={(label) => <HoverCard hover className="">{label}</HoverCard>} // optional: wrap with your Card/HoverCard
         />
         </div>
+      </section>
       </section>
     </>
   );
