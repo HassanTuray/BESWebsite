@@ -28,9 +28,10 @@ General Todos
 - Add hover affect to tree structure photos
 - Add extra info to hover effect on tree structure
 - rename the variables to be general and note too directly geared towards eboard stuff
-- switch from tailwind to just regular css
 - change image sizes to the appropriate sizes and upload them rather than doing scaling
 - Fix sizing on website to work on multiple screens and multiple displays
 - Rename files to snake case
 - Restructure usage of div and section. Some pages render multiple sections while others do not
 - Remove wild card imports for large libraries
+- put photos in central repository instead of having to send all of them to git
+- normalize how section and outermost divs are used to give consistent margin and padding between different parts of the site

@@ -1,4 +1,5 @@
 "use client";
+import Image from "next/image";
 
 import { useEffect, useState } from "react";
 
@@ -7,36 +8,46 @@ type SlideshowProps = {
   interval?: number;        // ms between slides (default 4000)
   alt?: string;
   className?: string;
+  contain?: boolean;
 };
 
-export default function Slideshow({ images, interval = 4000, alt = "", className = "" }: SlideshowProps) {
+export default function Slideshow({ 
+  images, 
+  interval = 4000, 
+  alt = "", 
+  className = "", 
+  contain = false 
+}: SlideshowProps) {
   const [index, setIndex] = useState(0);
 
   useEffect(() => {
-    if (!images || images.length < 2) return; // nothing to rotate
+    if (!images || images.length < 2) {
+      return;
+    }
+
+  
     const id = setInterval(() => setIndex((i) => (i + 1) % images.length), interval);
     return () => clearInterval(id);
   }, [images, interval]);
 
-  if (!images || images.length === 0) {
-    // Friendly placeholder if you haven't added images yet
-    return (
-      <div className={`relative h-full w-full rounded-xl border border-white/10 bg-white/5 grid place-items-center ${className}`}>
-        <span className="text-sm text-white/60">Add images to see a slideshow</span>
-      </div>
-    );
+  let objectContain = "object-cover";
+  if(contain) {
+    objectContain = "object-contain";
   }
 
   return (
-    <div className={`relative h-full w-full overflow-hidden rounded-xl ${className}`}>
+    <div className={`relative h-full w-full overflow-hidden rounded-xl ${className} `}>
       {images.map((src, i) => (
-        <img
+        <Image
           key={`${src}-${i}`}
           src={src}
           alt={alt}
-          className={`absolute inset-0 h-full w-full object-cover transition-opacity duration-700 ease-in-out ${i === index ? "opacity-100" : "opacity-0"}`}
-          loading={i === 0 ? "eager" : "lazy"}
-          decoding="async"
+          fill
+          priority={i === 0} // eager loading for first image
+          sizes="100vw"
+          className={`absolute inset-0 ${contain ? "object-contain" : "object-cover"} transition-opacity duration-700 ease-in-out ${
+            i === index ? "opacity-100" : "opacity-0"
+          }`}
         />
       ))}
     </div>

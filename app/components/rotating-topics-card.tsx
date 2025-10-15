@@ -1,5 +1,6 @@
 "use client";
 import * as React from "react";
+import Card from "./card";
 
 export type Topic = {
   id: string;
@@ -7,37 +8,49 @@ export type Topic = {
   body: string;
 };
 
+type RotatingTopicsCardProp = {
+  topics: Topic[];
+  children?: React.ReactNode;
+  cardWrapper?: string;
+  intervalMs?: number;
+  title?: string;
+}
+
 function clsx(...parts: (string | false | null | undefined)[]) {
   return parts.filter(Boolean).join(" ");
 }
 
-export default function RotatingTopicsCard({
-  topics,
-  intervalMs = 5500,
-  title = "Programs & Events",
-}: {
-  topics: Topic[];
-  intervalMs?: number;
-  title?: string;
-}) {
+export default function RotatingTopicsCard(
+  {topics, children, cardWrapper, intervalMs = 5500, title} : RotatingTopicsCardProp
+) {
   const [activeIdx, setActiveIdx] = React.useState(0);
   const [paused, setPaused] = React.useState(false);
 
   React.useEffect(() => {
-    if (paused || topics.length <= 1) return;
+    // if the cards are paused or there is only 1 card to show then do nothing
+    if (paused || topics.length <= 1) {
+      return;
+    }
+
+    // set an interval up. On a given interval rotate the topic cards
     const id = setInterval(() => {
       setActiveIdx((i) => (i + 1) % topics.length);
     }, intervalMs);
+
     return () => clearInterval(id);
   }, [paused, intervalMs, topics.length]);
 
   return (
     <div
       className="mx-auto max-w-full" // wider container
+  
       onMouseEnter={() => setPaused(true)}
       onMouseLeave={() => setPaused(false)}
-    >
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-0 overflow-hidden rounded-3xl border-2 border-white/10 bg-white/5 shadow-2xl min-h-[28rem]">
+    > 
+      <Card
+      cardWrapper={cardWrapper}
+      >
+        
         {/* Left: vertical list */}
         <div className="flex flex-col text-lg lg:text-xl">
           {topics.map((t, idx) => {
@@ -47,7 +60,7 @@ export default function RotatingTopicsCard({
                 key={t.id}
                 onClick={() => setActiveIdx(idx)}
                 className={clsx(
-                  "group text-left px-8 py-6 transition-colors outline-none",
+                  "group text-left px-8 py-3 transition-colors outline-none",
                   active
                     ? ""
                     : ""
@@ -70,20 +83,24 @@ export default function RotatingTopicsCard({
         </div>
 
         {/* Right: content */}
-        <div className="p-10 lg:p-14">
-          <div className="text-sm uppercase tracking-wider text-white/60">
-            {topics[activeIdx]?.title}
-          </div>
-          <h3 className="mt-2 text-3xl lg:text-4xl font-extrabold">
+        <div className="px-10 lg:px-14">
+          <h3 className="mb-2 text-3xl lg:text-4xl font-extrabold">
             <span className="bg-gradient-to-r from-rose-600 via-[#FFD700] to-[#228B22] bg-clip-text text-transparent">
               {title}
             </span>
           </h3>
-          <p className="mt-6 text-lg lg:text-xl text-white/90 leading-relaxed">
+
+          <div className="text-sm uppercase tracking-wider text-white/60">
+            {topics[activeIdx]?.title}
+          </div>
+          
+          <p className="mt-6 text-2xl/10 text-white/80 leading-relaxed ">
             {topics[activeIdx]?.body}
           </p>
         </div>
-      </div>
+        {children}
+      </Card>
+      
     </div>
   );
 }
