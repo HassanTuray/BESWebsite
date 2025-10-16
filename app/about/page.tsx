@@ -45,6 +45,18 @@ const topics = [companyVisits, professionalDev, socials, communityOutreach];
 const topicCardimages = ["/slides/BO3A8618.JPG", "/slides/965A4072.JPG", "/slides/IMG_0433.JPG", "/slides/20250419_DSC_0923.jpg"]
 const flyers = ["/flyers/terp-tech-path.PNG", "/flyers/welcome-back-cookout.jpg"]
 
+const goldSponsors = [
+  {src:"/gold-sponsors/Jane_Street_Capital_Logo.svg.png", alt:"Jane Street"}, 
+  {src: "/gold-sponsors/Visa_Brandmark_Blue_RGB_2021.svg", alt: "Visa"}, 
+  {src: "/gold-sponsors/whiting-turner-logo-vector.svg", alt: "Whiting Turner"}];
+
+  const silverSponsors = [
+  { src: "/silver-sponsors/Leidos-logo-horz-full-rgb.svg", alt: "Leidos" },
+  { src: "/silver-sponsors/AmgenBlueLogo.svg", alt: "Amgen" },
+  { src: "/silver-sponsors/BAE_Systems_logo.svg", alt: "BAE Systems" },
+  { src: "/silver-sponsors/WMT-Wordmark-Standard-TrueBlue-RGB.svg", alt: "Walmart" },
+];
+
 export default function AboutPage() {
   useEffect ( () => {
       (
@@ -90,7 +102,7 @@ export default function AboutPage() {
       <div className="relative h-screen">
         <div className="absolute inset-0 flex items-center justify-center z-10">
           <h1 className="whitespace-nowrap text-center text-4xl sm:text-6xl md:text-7xl lg:text-8xl font-black leading-tight tracking-tight z-10" data-scroll data-scroll-speed="0.1">
-            <span className="hero-text split bg-gradient-to-r from-rose-600 via-[#FFD700] to-[#228B22] bg-clip-text text-transparent drop-shadow-[0_0_14px_rgba(255,215,0,0.22)]">
+            <span className="hero-text split bg-gradient-to-r from-rose-600 via-[#FFD700] to-[#228B22] bg-clip-text text-transparent [text-shadow:0_0_14px_rgba(255,215,0,0.25)]">
               The Black Engineers Society
             </span>
           </h1>
@@ -288,6 +300,174 @@ export default function AboutPage() {
             >
             </Slideshow>
           </div>
+        </div>
+      </section>
+
+      <section id="#sponsors" className="mx-auto max-w-6xl px-4 py-16">
+        {/* Big page title */}
+        <h1 className="text-center text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-black leading-tight tracking-tight">
+          Thanks to our Sponsors!
+        </h1>
+            
+        {/* Vertical stack of the three cards */}
+        <div className="mt-12 grid min-h-[50dvh] place-items-center">
+          <div className="flex flex-col items-center justify-center gap-8">
+  
+            {/* GOLD (unchanged) */}
+            <Card cardWrapper="inline-block h-52 w-80 md:h-60 md:w-96 rounded-2xl border border-amber-300/50 bg-gradient-to-br from-amber-200/30 via-amber-500/15 to-amber-800/25 p-6 shadow-lg flex items-center justify-center overflow-hidden ">
+              <span className="mb-10">
+                <h1 className="text-center text-lg font-black leading-tight tracking-tight bg-gradient-to-r from-[#d4af37] via-[#b7950b] to-[#8a6e2f] bg-clip-text text-transparent">
+                  Gold Tier Sponsors!
+                </h1>
+              </span>
+  
+              <div className="flex text-center">
+                {goldSponsors.map((s, i) => (
+                  <div key={i} className="relative aspect-[3/2] w-24 md:w-32 p-10">
+                    <Image
+                      src={s.src}
+                      alt={s.alt}
+                      fill
+                      className="object-contain"
+                      sizes="(max-width: 768px) 80px, 100px"
+                      priority={i === 0}
+                    />
+                  </div>
+                ))}
+              </div>
+            </Card>
+            
+            {/* SILVER — more gray */}
+            <Card cardWrapper="flex inline-block h-52 w-80 md:h-60 md:w-96 rounded-2xl border border-zinc-400/60 bg-gradient-to-br from-zinc-300/35 via-zinc-600/20 to-zinc-900/30 p-6 shadow-lg items-center justify-center overflow-hidden">
+              <span className="mb-10">
+                <h1 className="text-center text-lg font-black leading-tight tracking-tight bg-gradient-to-r from-slate-200 via-zinc-400 to-slate-100 bg-clip-text text-transparent">
+                Silver Tier Sponsors!
+                </h1>
+              </span>
+              
+              <div className="grid grid-cols-2 gap-6 place-items-center">
+                {silverSponsors.map((s, i) => (
+                  <div key={i} className="relative aspect-[3/2] w-24 md:w-32 p-10">
+                    <Image
+                      src={s.src}
+                      alt={s.alt}
+                      fill
+                      className="object-contain"
+                      sizes="(max-width: 768px) 100px, 150px"
+                      priority={i === 0}
+                    />
+                  </div>
+                ))}
+              </div>
+            </Card>
+          </div>
+        </div>
+      </section>
+
+      <section id="#contactUs" className="mx-auto grid min-h-[80dvh] place-items-center px-4">
+      {/* Contact card */}
+        <div className="w-full max-w-md rounded-2xl border border-white/10 bg-white/5 p-6 shadow-lg">
+          <h1 className="text-2xl font-semibold">Contact Us</h1>
+
+          <form className="mt-6 space-y-4" method="post" action="#">
+            <div>
+              <label htmlFor="name" className="block text-sm">Name</label>
+              <input
+                id="name"
+                name="name"
+                type="text"
+                required
+                autoComplete="name"
+                className="mt-1 w-full rounded-xl border border-white/10 bg-white/10 p-3 text-white placeholder-white/60 focus:border-white/30 focus:outline-none focus:ring-2 focus:ring-white/30"
+                placeholder="Your name"
+              />
+            </div>
+
+            {/* Role selector */}
+            <div className="flex flex-col gap-2">
+              <label htmlFor="role" className="text-sm font-medium">
+                Who is leaving a message?
+              </label>
+              <select
+                id="role"
+                name="role"
+                className="w-full rounded-xl border border-white/10 bg-white/10 px-3 py-2 text-white
+                          focus:outline-none focus:ring-2 focus:ring-slate-400/60
+                          [color-scheme:dark]"
+                defaultValue="alumni"
+                required
+              >
+                <option value="alumni"  className="bg-[#0B1220] text-white">Alumni</option>
+                <option value="company" className="bg-[#0B1220] text-white">Company Representative</option>
+                <option value="other"   className="bg-[#0B1220] text-white">Other</option>
+              </select>
+            </div>
+
+            <div>
+              <label htmlFor="email" className="block text-sm">Email</label>
+              <input
+                id="email"
+                name="email"
+                type="email"
+                required
+                autoComplete="email"
+                className="mt-1 w-full rounded-xl border border-white/10 bg-white/10 p-3 text-white placeholder-white/60 focus:border-white/30 focus:outline-none focus:ring-2 focus:ring-white/30"
+                placeholder="you@example.com"
+              />
+            </div>
+
+            <div>
+              <label htmlFor="message" className="block text-sm">Message</label>
+              <textarea
+                id="message"
+                name="message"
+                rows={5}
+                required
+                className="mt-1 w-full rounded-xl border border-white/10 bg-white/10 p-3 text-white placeholder-white/60 focus:border-white/30 focus:outline-none focus:ring-2 focus:ring-white/30"
+                placeholder="How can we help?"
+              />
+            </div>
+
+            <button
+              type="submit"
+              className="inline-flex w-full items-center justify-center rounded-xl border border-white/10 bg-white/10 px-4 py-3 font-medium hover:bg-white/15"
+            >
+              Send
+            </button>
+          </form>
+        </div>
+
+        {/* Socials row */}
+        <div className="mt-8 flex items-center gap-4">
+          <a
+            href="https://www.linkedin.com/in/besumcp"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="Visit us on LinkedIn"
+            className="inline-flex items-center justify-center rounded-xl border border-white/10 p-2 hover:bg-white/10"
+          >
+            <img
+              src="https://cdn.simpleicons.org/linkedin/ffffff"
+              alt=""
+              width="24"
+              height="24"
+            />
+          </a>
+
+          <a
+            href="https://www.instagram.com/besumcp/?igsh=MWR1MXNmbHJveHFxdQ%3D%3D#"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="Visit us on Instagram"
+            className="inline-flex items-center justify-center rounded-xl border border-white/10 p-2 hover:bg-white/10"
+          >
+            <img
+              src="https://cdn.simpleicons.org/instagram/ffffff"
+              alt=""
+              width="24"
+              height="24"
+            />
+          </a>
         </div>
       </section>
     </>

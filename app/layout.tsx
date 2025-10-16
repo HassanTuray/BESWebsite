@@ -23,7 +23,7 @@ export default function RootLayout({
 }: Readonly<{ children: React.ReactNode }>) {
   return (
     <html lang="en">
-      <body className={`${geistSans.variable} ${geistMono.variable} antialiased bg-black text-white min-h-dvh`}>
+      <body className={`${geistSans.variable} ${geistMono.variable} antialiased bg-[linear-gradient(to_bottom,_#121212_0%,_#000000_100%)] text-white min-h-dvh`}>
         <header className="border-b border-white/10">
           <nav className="mx-auto flex max-w-5xl justify-center gap-6 py-4">
             <Link href="/about">About Us</Link>
