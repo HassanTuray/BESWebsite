@@ -12,6 +12,7 @@
     "gsap": "^3.13.0",
     "locomotive-scroll": "^5.0.0-beta.21",
     "next": "15.5.2",
+    "nodemailer": "^7.0.10",
     "react": "19.1.0",
     "react-dom": "19.1.0",
     "react-organizational-chart": "^2.2.1"

@@ -14,7 +14,7 @@ export const c_BESMissionStatementText = "To recruit, retain, and release qualif
 
 // history section
 export const c_historyTitleText = "Who We Are"
-export const c_historyText = "The Black Engineers Society is the University of Maryland, College Park's National Society of Black Engineers Chapter. Founded in 1975, we strive to serve students in their academic and professional journeys. We provide students with opportunities to expand their social networks, engage with industry professionals, and give back to their community.";
+export const c_historyText = "The Black Engineers Society is the University of Maryland, College Park's National Society of Black Engineers Chapter. Founded in 1975, we strive to serve students in their academic and professional journeys. We provide students with opportunities to expand their social networks, engage with industry professionals, and give back to their community. This organization is open to all students regardless of background, identity or affiliation.";
 
 // eboard tree
 export const c_eboardTreeTitle = "Meet our Execeutive Board!";

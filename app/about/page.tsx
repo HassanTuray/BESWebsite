@@ -92,13 +92,17 @@ export default function AboutPage() {
         )
         }
         
+        
       )()
-    },[]    
+    },[]  
+      
     )
+
+    const formRef = useRef<HTMLFormElement>(null);
 
   return (
     <>
-    <section id="#hero" className="px-25 mb-10">
+    <section id="hero" className="">
       <div className="relative h-screen">
         <div className="absolute inset-0 flex items-center justify-center z-10">
           <h1 className="whitespace-nowrap text-center text-4xl sm:text-6xl md:text-7xl lg:text-8xl font-black leading-tight tracking-tight z-10" data-scroll data-scroll-speed="0.1">
@@ -184,7 +188,7 @@ export default function AboutPage() {
       <div className='h-[40vh]'></div>
     </section>
 
-    <section id="#aboutUs" className="px-25 mt-25 mb-25">
+    <section id="aboutUs" className="">
       {/* History Mission Statment Section */}
       <section>
         <div className="grid grid-cols-2 gap-5 items-stretch">
@@ -264,7 +268,7 @@ export default function AboutPage() {
       </section> */}
       </section>
 
-      <section id="#programAndEvents" className="px-25 mt-25 mb-25">
+      <section id="programsAndEvents" className="">
         <RotatingTopicsCard 
           topics={topics}
           cardWrapper='grid grid-cols-[0.5fr_1fr_1fr] h-[38rem]'
@@ -277,6 +281,13 @@ export default function AboutPage() {
   
   
         <div className="grid grid-cols-2 mt-10">
+          <h1 className="text-center text-5xl font-black leading-tight tracking-tight">
+            Event Calendar
+          </h1>
+
+          <h1 className="text-center text-5xl font-black leading-tight tracking-tight">
+            This Weeks Events
+          </h1>
           <div className='relative overflow-hidden rounded-2xl ring-1 ring-white/10 shadow-xl shadow-black/20'>
             <iframe
             // Replace with your Calendar ID: Settings → Integrate calendar → Calendar ID
@@ -303,7 +314,7 @@ export default function AboutPage() {
         </div>
       </section>
 
-      <section id="#sponsors" className="mx-auto max-w-6xl px-4 py-16">
+      <section id="sponsors" className="">
         {/* Big page title */}
         <h1 className="text-center text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-black leading-tight tracking-tight">
           Thanks to our Sponsors!
@@ -314,14 +325,14 @@ export default function AboutPage() {
           <div className="flex flex-col items-center justify-center gap-8">
   
             {/* GOLD (unchanged) */}
-            <Card cardWrapper="inline-block h-52 w-80 md:h-60 md:w-96 rounded-2xl border border-amber-300/50 bg-gradient-to-br from-amber-200/30 via-amber-500/15 to-amber-800/25 p-6 shadow-lg flex items-center justify-center overflow-hidden ">
+            <Card cardWrapper="inline-block min-h-[25dvw] min-w-[50dvw] rounded-2xl border border-amber-300/50 bg-gradient-to-br from-amber-200/30 via-amber-500/15 to-amber-800/25 p-6 shadow-lg flex items-center justify-center overflow-hidden">
               <span className="mb-10">
-                <h1 className="text-center text-lg font-black leading-tight tracking-tight bg-gradient-to-r from-[#d4af37] via-[#b7950b] to-[#8a6e2f] bg-clip-text text-transparent">
+                <h1 className="text-center text-5xl font-black leading-tight tracking-tight bg-gradient-to-r from-[#d4af37] via-[#b7950b] to-[#8a6e2f] bg-clip-text text-transparent">
                   Gold Tier Sponsors!
                 </h1>
               </span>
   
-              <div className="flex text-center">
+              <div className="grid grid-cols-3 gap-6 place-items-center">
                 {goldSponsors.map((s, i) => (
                   <div key={i} className="relative aspect-[3/2] w-24 md:w-32 p-10">
                     <Image
@@ -329,7 +340,7 @@ export default function AboutPage() {
                       alt={s.alt}
                       fill
                       className="object-contain"
-                      sizes="(max-width: 768px) 80px, 100px"
+                      sizes="(max-width: 768px) 100px, 150px"
                       priority={i === 0}
                     />
                   </div>
@@ -338,14 +349,14 @@ export default function AboutPage() {
             </Card>
             
             {/* SILVER — more gray */}
-            <Card cardWrapper="flex inline-block h-52 w-80 md:h-60 md:w-96 rounded-2xl border border-zinc-400/60 bg-gradient-to-br from-zinc-300/35 via-zinc-600/20 to-zinc-900/30 p-6 shadow-lg items-center justify-center overflow-hidden">
+            <Card cardWrapper="flex inline-block min-h-[25dvw] min-w-[50dvw] rounded-2xl border border-zinc-400/60 bg-gradient-to-br from-zinc-300/35 via-zinc-600/20 to-zinc-900/30 p-6 shadow-lg items-center justify-center overflow-hidden">
               <span className="mb-10">
-                <h1 className="text-center text-lg font-black leading-tight tracking-tight bg-gradient-to-r from-slate-200 via-zinc-400 to-slate-100 bg-clip-text text-transparent">
+                <h1 className="text-center text-5xl font-black leading-tight tracking-tight bg-gradient-to-r from-slate-200 via-zinc-400 to-slate-100 bg-clip-text text-transparent">
                 Silver Tier Sponsors!
                 </h1>
               </span>
               
-              <div className="grid grid-cols-2 gap-6 place-items-center">
+              <div className="grid grid-cols-3 gap-6 place-items-center">
                 {silverSponsors.map((s, i) => (
                   <div key={i} className="relative aspect-[3/2] w-24 md:w-32 p-10">
                     <Image
@@ -364,12 +375,40 @@ export default function AboutPage() {
         </div>
       </section>
 
-      <section id="#contactUs" className="mx-auto grid min-h-[80dvh] place-items-center px-4">
+      <section id="contactUs" className="place-items-center">
       {/* Contact card */}
         <div className="w-full max-w-md rounded-2xl border border-white/10 bg-white/5 p-6 shadow-lg">
           <h1 className="text-2xl font-semibold">Contact Us</h1>
 
-          <form className="mt-6 space-y-4" method="post" action="#">
+          <form
+            ref={formRef}
+            className="mt-6 space-y-4"
+            onSubmit={async (e) => {
+              e.preventDefault(); // stop default page reload
+
+              const form = e.currentTarget;
+              const formData = Object.fromEntries(new FormData(form));
+
+              try {
+                const res = await fetch("/api/contact", {
+                  method: "POST",
+                  headers: { "Content-Type": "application/json" },
+                  body: JSON.stringify(formData),
+                });
+
+                if (res.ok) {
+                  alert(" Message sent successfully!");
+                  form.reset(); 
+                } else {
+                  const err = await res.json();
+                  alert(` Failed to send message: ${err.error || "Unknown error"}`);
+                }
+              } catch (err) {
+                console.error("Error sending form:", err);
+                alert(`${err instanceof Error ? err.message : "Something went wrong."}`);
+              }
+            }}
+          >
             <div>
               <label htmlFor="name" className="block text-sm">Name</label>
               <input
@@ -446,12 +485,12 @@ export default function AboutPage() {
             aria-label="Visit us on LinkedIn"
             className="inline-flex items-center justify-center rounded-xl border border-white/10 p-2 hover:bg-white/10"
           >
-            <img
-              src="https://cdn.simpleicons.org/linkedin/ffffff"
-              alt=""
-              width="24"
-              height="24"
-            />
+            <img 
+              src="/svgs/linkedin.svg" 
+              alt="LinkedIn" 
+              width="24" 
+              height="24" 
+              className="invert" />
           </a>
 
           <a

@@ -24,11 +24,14 @@
 
 
 @layer base {
+  section {
+    @apply  px-6 min-h-screen px-[5vw] py-[5vh] mb-[25dvh];
+  }
 
 }
 
 @layer components {
-
+  
 }
 
 @layer utilities {
