@@ -104,7 +104,11 @@ export default function Home() {
       <section id="hero" className="">
         <div className="relative h-screen">
           <div className="absolute inset-0 flex items-center justify-center z-10">
-            <h1 className="whitespace-nowrap text-center text-4xl sm:text-6xl md:text-7xl lg:text-8xl font-black leading-tight tracking-tight z-10" data-scroll data-scroll-speed="0.1">
+            <h1 className="hero-text relative z-20 text-center font-black leading-tight tracking-tight 
+               text-4xl sm:text-6xl md:text-7xl lg:text-8xl 
+               bg-gradient-to-r from-rose-600 via-[#FFD700] to-[#228B22]
+               bg-clip-text text-transparent drop-shadow-[0_0_14px_rgba(255,215,0,0.25)]" 
+               data-scroll data-scroll-speed="0.1">
               <span className="hero-text split bg-gradient-to-r from-rose-600 via-[#FFD700] to-[#228B22] bg-clip-text text-transparent [text-shadow:0_0_14px_rgba(255,215,0,0.25)]">
                 The Black Engineers Society
               </span>
@@ -118,7 +122,11 @@ export default function Home() {
             alt="collage image"
             width={300}
             height={300}
-            className="fade-photo brightness-90 opacity-50 rounded-sm absolute top-10 left-215 z-0"
+            className="
+              fade-photo brightness-90 opacity-50 rounded-sm absolute 
+              top-[5%] right-[5%]
+              w-[28vw] max-w-[250px]
+              sm:w-[24vw] md:w-[18vw] lg:w-[24vw] z-0"
             priority        
             data-scroll
             data-scroll-speed="0.2"
@@ -130,7 +138,11 @@ export default function Home() {
             alt="collage image"
             width={300}
             height={300}
-            className="fade-photo brightness-90 opacity-50 rounded-sm absolute top-10 left-50 z-0"
+            className="
+              fade-photo brightness-90 opacity-50 rounded-sm absolute 
+              top-[5%] left-[15%] 
+              w-[30vw] max-w-[250px]
+              sm:w-[25vw] md:w-[20vw] z-0"
             priority   
             data-scroll
             data-scroll-speed="0.2"     
@@ -142,22 +154,14 @@ export default function Home() {
             alt="collage image"
             width={300}
             height={300}
-            className="fade-photo brightness-90 opacity-50 rounded-sm absolute top-100 left-250 z-0"
+            className="
+              fade-photo brightness-90 opacity-50 rounded-sm absolute 
+              top-[47%] left-[80%]
+              w-[25vw] max-w-[220px]
+              sm:w-[20vw] md:w-[18vw] z-0"
             priority   
             data-scroll
             data-scroll-speed="0.3"     
-          /> 
-  
-          {/* Bottom photo */}
-          <Image
-            src="/slides/BO3A8438.JPG"
-            alt="collage image"
-            width={300}
-            height={300}
-            className="fade-photo brightness-90 opacity-50 rounded-sm absolute top-175 left-150 z-0"
-            priority  
-            data-scroll
-            data-scroll-speed="0.65"     
           /> 
   
           {/* Middle middle photo */}
@@ -166,7 +170,11 @@ export default function Home() {
             alt="collage image"
             width={300}
             height={300}
-            className="fade-photo brightness-90 opacity-50 rounded-sm absolute top-90 left-115 z-0"
+            className="
+              fade-photo brightness-90 opacity-50 rounded-sm absolute 
+              top-[45%] left-[40%] -translate-x-1/2
+              w-[35vw] max-w-[280px]
+              sm:w-[30vw] md:w-[25vw] z-0"
             priority    
             data-scroll
             data-scroll-speed="0.4"    
@@ -178,10 +186,30 @@ export default function Home() {
             alt="collage image"
             width={300}
             height={300}
-            className="fade-photo brightness-90 opacity-50 rounded-sm absolute top-80 left-0 z-0"
+            className="
+              fade-photo brightness-90 opacity-50 rounded-sm absolute 
+              top-[40%] left-[0%]
+              w-[25vw] max-w-[220px]
+              sm:w-[20vw] md:w-[18vw] z-0"
             priority        
             data-scroll
             data-scroll-speed="0.5"
+          /> 
+
+          {/* Bottom photo */}
+          <Image
+            src="/slides/BO3A8438.JPG"
+            alt="collage image"
+            width={300}
+            height={300}
+            className="
+              fade-photo brightness-90 opacity-50 rounded-sm absolute
+              top-[80%] left-[35%]
+              w-[35vw] max-w-[280px]
+              sm:w-[30vw] md:w-[25vw] z-0"
+            priority  
+            data-scroll
+            data-scroll-speed="0.65"     
           />       
         </div>
         <div className='h-[40vh]'></div>
