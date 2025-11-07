@@ -346,7 +346,7 @@ export default function Home() {
         <section id="sponsors" className="">
           {/* Big page title */}
           <h1 className="text-center text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-black leading-tight tracking-tight">
-            Thanks to our Sponsors!
+            Thanks to Our Sponsors!
           </h1>
               
           {/* Vertical stack of the three cards */}
