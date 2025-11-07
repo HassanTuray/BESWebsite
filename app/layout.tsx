@@ -25,7 +25,7 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased bg-[linear-gradient(to_bottom,_#121212_0%,_#000000_100%)] text-white min-h-dvh`}
       >
-        {/* 🌐 Floating Navbar */}
+        {/* Floating Navbar */}
         <header
           className="
             fixed top-0 left-0 w-full z-50

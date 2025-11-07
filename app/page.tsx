@@ -125,8 +125,8 @@ export default function Home() {
             className="
               fade-photo brightness-90 opacity-50 rounded-sm absolute 
               top-[5%] right-[5%]
-              w-[28vw] max-w-[250px]
-              sm:w-[24vw] md:w-[18vw] lg:w-[24vw] z-0"
+              w-[35vw] max-w-[280px]
+              sm:w-[30vw] md:w-[25vw] lg:w-[20vw] z-0"
             priority        
             data-scroll
             data-scroll-speed="0.2"
@@ -141,8 +141,8 @@ export default function Home() {
             className="
               fade-photo brightness-90 opacity-50 rounded-sm absolute 
               top-[5%] left-[15%] 
-              w-[30vw] max-w-[250px]
-              sm:w-[25vw] md:w-[20vw] z-0"
+              w-[35vw] max-w-[280px]
+              sm:w-[30vw] md:w-[25vw] lg:w-[20vw] z-0"
             priority   
             data-scroll
             data-scroll-speed="0.2"     
@@ -157,8 +157,8 @@ export default function Home() {
             className="
               fade-photo brightness-90 opacity-50 rounded-sm absolute 
               top-[47%] left-[80%]
-              w-[25vw] max-w-[220px]
-              sm:w-[20vw] md:w-[18vw] z-0"
+              w-[35vw] max-w-[280px]
+              sm:w-[30vw] md:w-[25vw] lg:w-[20vw] z-0"
             priority   
             data-scroll
             data-scroll-speed="0.3"     
@@ -174,7 +174,7 @@ export default function Home() {
               fade-photo brightness-90 opacity-50 rounded-sm absolute 
               top-[45%] left-[40%] -translate-x-1/2
               w-[35vw] max-w-[280px]
-              sm:w-[30vw] md:w-[25vw] z-0"
+              sm:w-[30vw] md:w-[25vw] lg:w-[20vw] z-0"
             priority    
             data-scroll
             data-scroll-speed="0.4"    
@@ -189,8 +189,8 @@ export default function Home() {
             className="
               fade-photo brightness-90 opacity-50 rounded-sm absolute 
               top-[40%] left-[0%]
-              w-[25vw] max-w-[220px]
-              sm:w-[20vw] md:w-[18vw] z-0"
+              w-[35vw] max-w-[280px]
+              sm:w-[30vw] md:w-[25vw] lg:w-[20vw] z-0"
             priority        
             data-scroll
             data-scroll-speed="0.5"
@@ -206,7 +206,7 @@ export default function Home() {
               fade-photo brightness-90 opacity-50 rounded-sm absolute
               top-[80%] left-[35%]
               w-[35vw] max-w-[280px]
-              sm:w-[30vw] md:w-[25vw] z-0"
+              sm:w-[30vw] md:w-[25vw] lg:w-[20vw] z-0"
             priority  
             data-scroll
             data-scroll-speed="0.65"     
@@ -218,12 +218,12 @@ export default function Home() {
       <section id="aboutUs" className="">
         {/* History Mission Statment Section */}
         <section>
-          <div className="grid grid-cols-2 gap-5 items-stretch">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-5 items-stretch">
             
             {/* NSBE Mission Statement Card */}
-            <div className="relative col-span-1">
+            <div className="col-span-1">
               <Card>
-                <h2 className="text-xl sm:text-5xl font-bold bg-gradient-to-r from-rose-600 via-[#FFD700] to-[#228B22] bg-clip-text text-transparent">
+                <h2 className="text-xl sm:text-4xl md:text-5xl font-bold bg-gradient-to-r from-rose-600 via-[#FFD700] to-[#228B22] bg-clip-text text-transparent">
                   {page.c_NSBEMissionTitleText}
                 </h2>
                 
@@ -245,7 +245,7 @@ export default function Home() {
             </div>
   
             {/* BES Mission Statement Card */}
-            <div className="relative col-span-1">
+            <div className="col-span-1">
               <Card cardWrapper="h-full flex flex-col justify-between">
                 <h2 className="text-xl sm:text-5xl font-bold bg-gradient-to-r from-rose-600 via-[#FFD700] to-[#228B22] bg-clip-text text-transparent">
                   {page.c_BESMissionTitleText}
@@ -269,8 +269,8 @@ export default function Home() {
             </div>
   
             {/* History card */}
-            <div className="flex justify-center w-full col-span-2">
-              <Card cardWrapper="w-full min-h-[18rem]">
+            <div className="flex justify-center w-full col-span-1 md:col-span-2">
+              <Card cardWrapper="w-full min-h-[14rem] sm:min-h-[16rem] md:min-h-[18rem]">
                 <h2 className="text-xl sm:text-5xl font-bold bg-gradient-to-r from-rose-600 via-[#FFD700] to-[#228B22] bg-clip-text text-transparent">
                   {page.c_historyTitleText}
                 </h2>
@@ -298,7 +298,7 @@ export default function Home() {
         <section id="programsAndEvents" className="">
           <RotatingTopicsCard 
             topics={topics}
-            cardWrapper='grid grid-cols-[0.5fr_1fr_1fr] h-[38rem]'
+            cardWrapper='grid grid-cols-1 md:grid-cols-[0.6fr_1fr_1fr] gap-4 md:h-[38rem]'
             intervalMs={5500}
             title='Programs and Events'
           >
@@ -307,37 +307,39 @@ export default function Home() {
           </RotatingTopicsCard>
     
     
-          <div className="grid grid-cols-2 mt-10">
-            <h1 className="text-center text-5xl font-black leading-tight tracking-tight">
+          <div className="grid grid-cols-1 md:grid-cols-2 mt-10 gap-10">
+            <div>
+              <h1 className="text-center text-3xl sm:text-4xl md:text-5xl font-black leading-tight tracking-tight">
               Event Calendar
-            </h1>
-  
-            <h1 className="text-center text-5xl font-black leading-tight tracking-tight">
+              </h1>
+
+              <div className='relative overflow-hidden rounded-2xl ring-1 ring-white/10 shadow-xl shadow-black/20'>
+                <iframe
+                // Replace with your Calendar ID: Settings → Integrate calendar → Calendar ID
+                src={
+                    "https://calendar.google.com/calendar/embed?" +
+                    "showTitle=0&showTabs=0&showPrint=0&showCalendars=0&showTz=0&wkst=1&mode=MONTH&" +
+                    "ctz=America/New_York&bgcolor=%23000000&" +
+                    "src=" + encodeURIComponent("koc0po5n2nopod6betkm3r9rd4@group.calendar.google.com")
+                }
+                className="w-full h-[700px] bg-black"
+                style={{ border: 0 }}
+                loading="lazy"
+                title="BES Calendar"
+                />
+              </div>
+            </div>
+
+            <div>
+              <h1 className="text-center text-3xl sm:text-4xl md:text-5xl font-black leading-tight tracking-tight">
               This Weeks Events
-            </h1>
-            <div className='relative overflow-hidden rounded-2xl ring-1 ring-white/10 shadow-xl shadow-black/20'>
-              <iframe
-              // Replace with your Calendar ID: Settings → Integrate calendar → Calendar ID
-              src={
-                  "https://calendar.google.com/calendar/embed?" +
-                  "showTitle=0&showTabs=0&showPrint=0&showCalendars=0&showTz=0&wkst=1&mode=MONTH&" +
-                  "ctz=America/New_York&bgcolor=%23000000&" +
-                  "src=" + encodeURIComponent("koc0po5n2nopod6betkm3r9rd4@group.calendar.google.com")
-              }
-              className="w-full h-[700px] bg-black"
-              style={{ border: 0 }}
-              loading="lazy"
-              title="BES Calendar"
-            />
+              </h1>
+
+              <div className="px-2 h-[300px] sm:h-[400px] md:h-[700px] overflow-hidden">
+  <Slideshow images={flyers} contain={true} />
+</div>
             </div>
-            
-            <div className='px-2'>
-              <Slideshow 
-                images={flyers} 
-                contain={true}
-              >
-              </Slideshow>
-            </div>
+
           </div>
         </section>
   
