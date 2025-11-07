@@ -227,7 +227,7 @@ export default function Home() {
                   {page.c_NSBEMissionTitleText}
                 </h2>
                 
-                <p className="mt-3 text-2xl/10 text-white/80 pr-10 pb-15">
+                <p className="mt-3 text-md/5 lg:text-2xl/10 text-white/80 pr-10 pb-15">
                   {page.c_NSBEMissionStatementText}
                 </p>
   
@@ -251,7 +251,7 @@ export default function Home() {
                   {page.c_BESMissionTitleText}
                 </h2>
   
-                <p className="mt-3 text-2xl/10 text-white/80 pr-10 pb-15">
+                <p className="mt-3 text-md/5 lg:text-2xl/10 text-white/80 pr-10 pb-15">
                   To <b><u>recruit</u></b>, <b><u>retain</u></b>, and <b><u>release</u></b> qualified minorities in the fields of computer science, engineering, mathematics, and physical sciences.
                 </p>
   
@@ -274,7 +274,7 @@ export default function Home() {
                 <h2 className="text-xl sm:text-5xl font-bold bg-gradient-to-r from-rose-600 via-[#FFD700] to-[#228B22] bg-clip-text text-transparent">
                   {page.c_historyTitleText}
                 </h2>
-                <p className="mt-3 text-2xl/10 text-white/80 pr-10 pb-15">
+                <p className="mt-3 text-md/5 lg:text-2xl/10 text-white/80 pr-10 pb-15">
                   {page.c_historyText}
                 </p>
               </Card>
