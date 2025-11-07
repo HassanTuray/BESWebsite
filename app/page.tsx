@@ -41,8 +41,8 @@ const communityOutreach = {id:"communityOutreach", title:"Community Outreach", b
 
 const topics = [companyVisits, professionalDev, socials, communityOutreach];
 
-const topicCardimages = ["/slides/BO3A8618.JPG", "/slides/965A4072.JPG", "/slides/IMG_0433.JPG", "/slides/20250419_DSC_0923.jpg"]
-const flyers = ["/flyers/terp-tech-path.PNG", "/flyers/welcome-back-cookout.jpg"]
+const topicCardimages = ["/slides/BO3A8618.JPG", "/slides/965A4072.JPG", "/slides/IMG_0433.JPG", "/slides/thumbnail_IMG_1259.jpg"];
+const flyers = ["/flyers/TerpGPT (1).png"];
 
 const goldSponsors = [
   {src:"/gold-sponsors/Jane_Street_Capital_Logo.svg.png", alt:"Jane Street"}, 
@@ -237,7 +237,7 @@ export default function Home() {
                     alt="BES crest"
                     width={96}
                     height={96}
-                    className="hidden sm:block h-10 w-10 sm:h-14 sm:w-14 md:h-20 md:w-20 object-contain"
+                    className="block h-17 w-17 sm:h-14 sm:w-14 md:h-20 md:w-20 object-contain"
                     priority
                   />
                 </div>
@@ -261,7 +261,7 @@ export default function Home() {
                     alt="BES logo"
                     width={96}
                     height={96}
-                    className="hidden sm:block h-10 w-10 sm:h-14 sm:w-14 md:h-20 md:w-20 object-contain"
+                    className="block h-17 w-17 sm:h-14 sm:w-14 md:h-20 md:w-20 object-contain"
                     priority
                   />
                 </div>
@@ -332,12 +332,12 @@ export default function Home() {
 
             <div>
               <h1 className="text-center text-3xl sm:text-4xl md:text-5xl font-black leading-tight tracking-tight">
-              This Weeks Events
+                Upcoming Events
               </h1>
 
-              <div className="px-2 h-[300px] sm:h-[400px] md:h-[700px] overflow-hidden">
-  <Slideshow images={flyers} contain={true} />
-</div>
+              <div className="px-2 h-[60vh] sm:h-[70vh] md:h-[700px] overflow-hidden">
+                <Slideshow images={flyers} contain={true} />
+              </div>
             </div>
 
           </div>

@@ -36,8 +36,7 @@ export default function Slideshow({
   }
 
   return (
-    <div className={`relative w-full overflow-hidden rounded-xl 
-  h-[200px] sm:h-[300px] md:h-full ${className}`}>
+    <div className={`relative w-full h-full overflow-hidden rounded-xl ${className}`}>
       {images.map((src, i) => (
         <Image
           key={`${src}-${i}`}

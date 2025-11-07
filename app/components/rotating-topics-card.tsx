@@ -94,7 +94,7 @@ export default function RotatingTopicsCard(
             {topics[activeIdx]?.title}
           </div>
           
-          <p className="mt-6 text-2xl/10 text-white/80 leading-relaxed ">
+          <p className="mt-6 text-md/5 lg:text-2xl/10 text-white/80 leading-relaxed ">
             {topics[activeIdx]?.body}
           </p>
         </div>
